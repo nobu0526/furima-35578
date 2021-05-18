@@ -21,6 +21,7 @@
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
+| image                               | string     | null: false       |
 | name                                | string     | null: false       |
 | description                         | text       | null: false       |
 | price                               | string     | null: false       |
@@ -39,6 +40,7 @@
 |-------------------|------------|-------------------|
 | user              | reference  | null: false       |
 | item              | reference  | null: false       |
+| area_id           | string     | null: false       |
 
 ### Association
 

@@ -29,7 +29,7 @@
 | charge_id                           | integer    | null: false                        |
 | shipping_area_id                    | integer    | null: false                        |
 | shipping_day_id                     | integer    | null: false                        |
-| user                                | reference  | null: false ,foreign_key:true      |
+| user                                | references  | null: false ,foreign_key:true      |
 
 ### Association
 
@@ -40,8 +40,8 @@
 
 | Column            | Type       | Options                            |
 |-------------------|------------|------------------------------------|
-| user              | reference  | null: false ,foreign_key:true      |
-| item              | reference  | null: false ,foreign_key:true      |
+| user              | references | null: false ,foreign_key:true      |
+| item              | references  | null: false ,foreign_key:true      |
 
 ### Association
 
@@ -59,7 +59,7 @@
 | address           | string     | null: false                        |
 | building_name     | string     |                                    |
 | phone_number      | string     | null: false                        |
-| order            | reference  | null: false ,foreign_key:true      |
+| order            | references  | null: false ,foreign_key:true      |
 
 
 ### Association

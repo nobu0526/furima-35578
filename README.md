@@ -26,9 +26,9 @@
 | price                               | integer    | null: false                        |
 | category_id                         | string     | null: false                        |
 | status_id                           | string     | null: false                        |
-| charges_id                          | string     | null: false                        |
+| charge_id                           | string     | null: false                        |
 | shipping_area_id                    | string     | null: false                        |
-| shipping_day_id                    | string     | null: false                        |
+| shipping_day_id                     | string     | null: false                        |
 | user                                | reference  | null: false ,foreign_key:true      |
 
 ### Association

@@ -3,64 +3,50 @@
 | Column               | Type                | Options                 |
 |----------------------|---------------------|-------------------------|
 | nickname             | string              | null: false             |
-| mail                 | string              | null: false             |
-| password             | string              | null: false             |
-| password_confirmation| string              | null: false             |
-| first_name           | text                | null: false             |
-| last_name            | text                | null: false             |
-| first_name_kana      | text                | null: false             |
-| last_name_kana       | text                | null: false             |
+| email                | string              | null: false,unique:true |
+| encrypted_password   | string              | null: false             |
+| first_name           | string              | null: false             |
+| last_name            | string              | null: false             |
+| first_name_kana      | string              | null: false             |
+| last_name_kana       | string              | null: false             |
 | birthday             | date                | null: false             |
 
 
 ### Association
 
 * has_many :items
-* has_many :cards
+* has_many :orders
 
 ## items table
 
 | Column                              | Type       | Options           |
 |-------------------------------------|------------|-------------------|
 | name                                | string     | null: false       |
-| description                         | string     | null: false       |
+| description                         | text       | null: false       |
 | category                            | string     | null: false       |
 | status                              | string     | null: false       |
 | price                               | string     | null: false       |
-| shipping_id                         | reference  | null: false       |
+| charges                             | string     | null: false       |
+| area                                | string     | null: false       |
+| days                                | string     | null: false       |
+| users_id                            | reference  | null: false       |
 
 ### Association
 
 - belongs_to :user
-- has_one    :shipping
-- has_one    :card
+- belongs_to :order
 
-## cards table
-
-| Column             | Type       | Options           |
-|--------------------|------------|-------------------|
-| card number        | string     | null: false       |
-| expiration_date    | string     | null: false       |
-| security_code      | string     | null: false       |
-| shipping_address_id| reference  | null: false       |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
-- has_one    :shipping_address
-
-## shipping table
+## orders table
 
 | Column            | Type       | Options           |
 |-------------------|------------|-------------------|
-| charges           | string     | null: false       |
-| area              | string     | null: false       |
-| days              |  string    | null: false       |
+| item_id           | reference  | null: false       |
 
 ### Association
 
+- belongs_to :user
 - belongs_to :item
+- has_one    :shipping-address
 
 ## shipping_address table
 
@@ -70,9 +56,9 @@
 | prefecture        | string     | null: false       |
 | city              | string     | null: false       |
 | address           | string     | null: false       |
-| building_name     | string     | null: false       |
+| building_name     | string     |                   |
 | phone_number      | string     | null: false       |
 
 ### Association
 
-- belongs_to :card
+- belongs_to :order

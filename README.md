@@ -23,24 +23,22 @@
 |-------------------------------------|------------|-------------------|
 | name                                | string     | null: false       |
 | description                         | text       | null: false       |
-| category                            | string     | null: false       |
-| status                              | string     | null: false       |
 | price                               | string     | null: false       |
-| charges                             | string     | null: false       |
-| area                                | string     | null: false       |
-| days                                | string     | null: false       |
-| users_id                            | reference  | null: false       |
+| item_id                             | string     | null: false       |
+| user                                | reference  | null: false       |
+| area_id                             | string     | null: false       |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- has_one    :order
 
 ## orders table
 
 | Column            | Type       | Options           |
 |-------------------|------------|-------------------|
-| item_id           | reference  | null: false       |
+| user              | reference  | null: false       |
+| item              | reference  | null: false       |
 
 ### Association
 
@@ -52,12 +50,7 @@
 
 | Column            | Type       | Options           |
 |-------------------|------------|-------------------|
-| post_code         | string     | null: false       |
-| prefecture        | string     | null: false       |
-| city              | string     | null: false       |
-| address           | string     | null: false       |
-| building_name     | string     |                   |
-| phone_number      | string     | null: false       |
+| area_id           | string     | null: false       |
 
 ### Association
 

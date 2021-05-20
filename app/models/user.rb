@@ -19,4 +19,13 @@ class User < ApplicationRecord
     validates :last_name_kana
     end
   end
+
+  has_many :users
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :stasus
+  belongs_to :chrage
+  belongs_to :shipping_area
+  belongs_to :shipping_day
+
 end

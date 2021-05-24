@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
     end
    end
 
-   describe "商品出品" do
+   context "商品出品できない時" do
 
     it "商品の画像を投稿しないと出品できない" do
       @item.image = nil
@@ -44,6 +44,18 @@ RSpec.describe Item, type: :model do
          @item.valid?
          expect(@item.errors.full_messages).to include"Price is not a number"
       end
+
+      it "商品の値段が半角英数混合だと出品できない" do
+        @item.price ="aa111"
+        @item.valid?
+        expect(@item.errors.full_messages).to include"Price is not a number"
+     end
+
+     it "商品の値段が半角英字のみでは出品できない" do
+      @item.price ="aaaaa"
+      @item.valid?
+      expect(@item.errors.full_messages).to include"Price is not a number"
+   end
 
      it "商品の値段が300未満だと出品できない" do
         @item.price =299 

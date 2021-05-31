@@ -6,8 +6,10 @@ class OrderShippingAddress
   validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/}
   validates :address
-  validates :phone_number, format: {with: /\A0[0-9]+\z/ }
+  validates :phone_number, format: {with: /\A\d{10,11}\z/}
   validates :token
+  validates :item_id
+  validates :user_id
   end
 
   validates :area_id,  numericality: { other_than: 1}

@@ -10,7 +10,7 @@ class OrderShippingAddress
   validates :token
   end
 
-  validates :area_id,  numericality: { other_than: 0}
+  validates :area_id,  numericality: { other_than: 1}
 
   
   def save
